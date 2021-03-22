@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <div class="header-item h-l">2</div>
+    <div class="header-item h-l"><span class="iconarrow-down-bold"></span></div>
     <div class="header-item h-c">搜索</div>
     <div class="header-item h-r">城市</div>
   </div>

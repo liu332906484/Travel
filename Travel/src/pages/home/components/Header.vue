@@ -1,8 +1,20 @@
 <template>
-  <div class="header">
-     <div class="header-box h-b-r"><i class="iconfont iconarrow-left-bold"></i></div>
-     <div class="header-box h-b-c">2</div>
-     <div class="header-box h-b-r"><i class="iconfont iconarrow-down-filling"></i></div>
+  <div class="header fix align-items-center justify-content-between ">
+     <div class="header-box h-b-l mg-zy-10">
+       <div class="fix align-items-center justify-content-center">
+          <i class="iconfont iconarrow-left-bold"></i>
+       </div>
+     </div>
+     <div class="header-box h-b-c flx-flex">
+       <div class="fix align-items-center justify-content-center">
+          <span class="search pg-zy-15"><i class="iconfont iconsearch"></i> 请输入...... </span>
+       </div>
+     </div>
+     <div class="header-box h-b-r mg-zy-10">
+       <div class="fix align-items-center justify-content-center">
+          <i class="iconfont iconmap mg-yz-5"></i><span class="city">城市</span>
+       </div>
+     </div>
   </div>
 </template>
 
@@ -13,9 +25,27 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+  @import '~styles/varibles.styl'
   .header
-   display flex
-   height .60rem
-   background #00bcd4
-   line-height 0.60rem
+    height $bgheight8
+    background $bgColor
+    color #fff
+    font-size 0.32rem
+    .header-box
+      .search
+        width 100%
+        height $bgheight5
+        line-height $bgheight5
+        background #fff
+        color #999
+        font-size 0.24rem
+        border-radius 0.05rem
+        .iconsearch
+          font-size 0.28rem
+      .city
+        font-size 0.28rem
+    .h-b-l
+      width $bgheight5
+    .h-b-r
+      width $bgheight12
 </style>

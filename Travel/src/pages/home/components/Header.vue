@@ -7,12 +7,12 @@
      </div>
      <div class="header-box h-b-c flx-flex">
        <div class="fix align-items-center justify-content-center">
-          <span class="search pg-zy-15"><i class="iconfont iconsearch"></i> 请输入...... </span>
+          <span class="search pg-zy-15"><i class="iconfont iconsearch"></i> makeing ing...... </span>
        </div>
      </div>
      <div class="header-box h-b-r mg-zy-10">
        <div class="fix align-items-center justify-content-center">
-          <i class="iconfont iconmap mg-yz-5"></i><span class="city">城市</span>
+          <span class="city">City</span><i class="iconfont iconmap mg-yz-5"></i>
        </div>
      </div>
   </div>

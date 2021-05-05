@@ -1,13 +1,22 @@
 <template>
   <div class="swiper">
-    <div v-swiper:mySwiper="swiperOption">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide" v-for="banner in banners">
-          <img class="img-box" :src="banner">
-        </div>
-      </div>
+    <swiper :options="swiperOption">
+      <!-- slides -->
+      <swiper-slide>
+        <img class="img-box" src="https://imgaz.staticbg.com/banggood/os/202104/20210427045140_735.jpg.webp" alt="banner">
+      </swiper-slide>
+      <swiper-slide>
+        <img class="img-box" src="https://imgaz.staticbg.com/banggood/os/202104/20210422215132_171.jpg.webp" alt="banner">
+      </swiper-slide>
+      <swiper-slide>
+        <img class="img-box" src="https://imgaz.staticbg.com/banggood/os/202104/20210421215723_318.jpg.webp" alt="banner">
+      </swiper-slide>
+      <swiper-slide>
+        <img class="img-box" src="https://imgaz.staticbg.com/banggood/os/202104/20210429035146_531.jpg.webp" alt="banner">
+      </swiper-slide>
+      <!-- Optional controls -->
       <div class="swiper-pagination"></div>
-    </div>
+    </swiper>
   </div>
 </template> 
 
@@ -16,20 +25,23 @@ export default {
   name: "HomeSwiper",
   data () {
     return {
-      banners: ['https://imgaz.staticbg.com/banggood/os/202104/20210427045140_735.jpg.webp', 'https://imgaz.staticbg.com/banggood/os/202104/20210427045140_735.jpg.webp'],
       swiperOption: {
-        pagination: {
-          el: '.swiper-pagination'
-        }
+          autoplay: 1000,
+          loop: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true
+          }
       }
     }
   }
-};
+}
 </script>
 
 <style lang="stylus" scoped>
-  .swiper
-    width 100%
-    .swiper-slide
-      width 100%
+.swiper
+  height auto 
+  overflow hidden
+  .swiper-container
+     width 100%
 </style>

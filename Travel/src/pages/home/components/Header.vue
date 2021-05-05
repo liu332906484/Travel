@@ -12,7 +12,7 @@
      </div>
      <div class="header-box h-b-r mg-zy-10">
        <div class="fix align-items-center justify-content-center">
-          <span class="city">City</span><i class="iconfont iconmap mg-yz-5"></i>
+          <span class="city">{{this.city}}</span><i class="iconfont iconmap mg-yz-5"></i>
        </div>
      </div>
   </div>
@@ -20,7 +20,10 @@
 
 <script>
 export default {
-  name: 'HomeHeader'
+  name: 'HomeHeader',
+  props: {
+    city: String
+  }
 }
 </script>
 

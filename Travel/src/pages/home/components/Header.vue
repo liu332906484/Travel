@@ -1,5 +1,5 @@
 <template>
-  <div class="header fix align-items-center justify-content-between ">
+  <div class="header fix align-items-center justify-content-between">
      <div class="header-box h-b-l mg-zy-10">
        <div class="fix align-items-center justify-content-center">
           <i class="iconfont iconarrow-left-bold"></i>
@@ -12,7 +12,9 @@
      </div>
      <div class="header-box h-b-r mg-zy-10">
        <div class="fix align-items-center justify-content-center">
-          <span class="city">{{this.city}}</span><i class="iconfont iconmap mg-yz-5"></i>
+         <router-link to="/City">
+            <span class="city">{{this.city}}</span><i class="iconfont iconmap mg-yz-5"></i>
+         </router-link> 
        </div>
      </div>
   </div>
@@ -45,8 +47,13 @@ export default {
         border-radius 0.05rem
         .iconsearch
           font-size 0.28rem
+          color #fff
       .city
         font-size 0.28rem
+        color #fff
+      .iconmap
+        color #fff
+        font-size 0.26rem
     .h-b-l
       width $bgheight5
     .h-b-r

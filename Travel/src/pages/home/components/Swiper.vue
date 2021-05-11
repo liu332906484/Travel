@@ -2,36 +2,28 @@
   <div class="swiper">
     <swiper :options="swiperOption">
       <!-- slides -->
-      <swiper-slide>
-        <img class="img-box" src="https://imgaz.staticbg.com/banggood/os/202104/20210427045140_735.jpg.webp" alt="banner">
+      <swiper-slide v-for="item of list" :key="item.id" v-if="list.length">
+        <img class="img-box" :src="item.imgUrl" alt="banner">
       </swiper-slide>
-      <swiper-slide>
-        <img class="img-box" src="https://imgaz.staticbg.com/banggood/os/202104/20210422215132_171.jpg.webp" alt="banner">
-      </swiper-slide>
-      <swiper-slide>
-        <img class="img-box" src="https://imgaz.staticbg.com/banggood/os/202104/20210421215723_318.jpg.webp" alt="banner">
-      </swiper-slide>
-      <swiper-slide>
-        <img class="img-box" src="https://imgaz.staticbg.com/banggood/os/202104/20210429035146_531.jpg.webp" alt="banner">
-      </swiper-slide>
-      <!-- Optional controls -->
-      <div class="swiper-pagination"></div>
+     
     </swiper>
+    <!-- Optional controls -->
+    <div class="swiper-pagination"></div>
   </div>
 </template> 
 
 <script>
 export default {
   name: "HomeSwiper",
+  props: {
+    list: Array
+  },
   data () {
     return {
       swiperOption: {
           autoplay: 1000,
           loop: true,
-          pagination: {
-            el: '.swiper-pagination',
-            clickable: true
-          }
+          pagination: '.swiper-pagination'
       }
     }
   }
@@ -42,6 +34,12 @@ export default {
 .swiper
   height auto 
   overflow hidden
-  .swiper-container
+  position relative
+  .swiper-pagination
      width 100%
+     bottom 5px !important
+     .swiper-pagination-bullet
+       background #fff
+       margin-left  10px
+       margin-right 10px
 </style>

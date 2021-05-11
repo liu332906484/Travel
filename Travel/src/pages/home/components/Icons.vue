@@ -17,55 +17,17 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    iconlist: Array
+  },
   data () {
     return {
-      iconsList: [{
-        id: '001',
-        imgUrl: 'https://imgaz1.chiccdn.com/os/202104/20210425215012_911.png.webp',
-        desc: 'Tops'
-      }, {
-        id: '002',
-        imgUrl: 'https://imgaz1.chiccdn.com/os/202104/20210425215353_754.png.webp',
-        desc: 'Bottoms'
-      }, {
-        id: '003',
-        imgUrl: 'https://imgaz1.chiccdn.com/os/202104/20210425215421_302.png.webp',
-        desc: 'Dresses'
-      }, {
-        id: '004',
-        imgUrl: 'https://imgaz1.chiccdn.com/os/202104/20210425215446_199.png.webp',
-        desc: 'Lingerie'
-      }, {
-        id: '005',
-        imgUrl: 'https://imgaz1.chiccdn.com/os/202104/20210425215742_733.png.webp',
-        desc: 'Shoes'
-      }, {
-        id: '006',
-        imgUrl: 'https://imgaz1.chiccdn.com/os/202104/20210425215809_345.png.webp',
-        desc: 'Bags'
-      }, {
-        id: '007',
-        imgUrl: 'https://imgaz1.chiccdn.com/os/202104/20210425215834_464.png.webp',
-        desc: 'Acc & Beauty'
-      }, {
-        id: '008',
-        imgUrl: 'https://imgaz1.chiccdn.com/os/202104/20210425215858_943.png.webp',
-        desc: 'Home'
-      }, {
-        id: '009',
-        imgUrl: 'https://imgaz1.chiccdn.com/os/202104/20210425225658_421.png.webp',
-        desc: 'Patchwork'
-      }, {
-        id: '010',
-        imgUrl: 'https://imgaz1.chiccdn.com/os/202104/20210425230009_787.png.webp',
-        desc: 'Flower'
-      }]
     }
   },
   computed: {
     pages () {
       const pages = []
-      this.iconsList.forEach((item, index) => {
+      this.iconlist.forEach((item, index) => {
           const page = Math.floor(index/8)
           if (!pages[page]) {
             pages[page] = []   

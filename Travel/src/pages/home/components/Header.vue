@@ -12,7 +12,7 @@
      </div>
      <div class="header-box h-b-r mg-zy-10">
        <div class="fix align-items-center justify-content-center">
-         <router-link to="/City">
+         <router-link to="/city">
             <span class="city">{{this.city}}</span><i class="iconfont iconmap mg-yz-5"></i>
          </router-link> 
        </div>

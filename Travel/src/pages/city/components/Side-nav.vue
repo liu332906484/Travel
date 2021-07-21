@@ -1,9 +1,9 @@
 <template>
-    <div class="side-nav">
-        <ul class="side-list">
-            <li class="side-item" v-for="item of letters" @click="handLetterClick" @touchstart="handTouchStart" @touchmove="handTouchMove" @touchend="handTouchEnd" :ref="item">{{item}}</li>
-        </ul>
-    </div>
+   <div class="side-nav">
+      <ul class="side-list">
+        <li class="side-item" v-for="item of letters" @click="handLetterClick" @touchstart="handTouchStart" @touchmove="handTouchMove" @touchend="handTouchEnd" :ref="item">{{item}}</li>
+      </ul>
+   </div>
 </template>
 
 <script>
@@ -46,7 +46,7 @@ export default {
            }
            this.timer = setTimeout ( () => {
             const touchY =  e.touches[0].clientY 
-            const index = Math.floor( (touchY - this.startY ) / 20 ) 
+            const index = Math.floor( (touchY - this.startY ) / 19 ) 
             if (index >= 0 && index < this.letters.length ) {
                 this.$emit('change', this.letters[index])
             }
@@ -64,7 +64,7 @@ export default {
 <style lang="stylus" scoped>
   @import '~styles/varibles.styl'
   .side-nav
-    position fixed
+    position absolute
     top  0
     bottom 0
     right 0

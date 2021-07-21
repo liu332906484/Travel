@@ -1,6 +1,6 @@
 <template>
   <div class="icons-box">
-    <swiper>
+    <swiper :options="swiperOption">
       <!-- slides -->
       <swiper-slide class="fix align-items-center flex-wrap-wrap" v-for="(page, index) of pages" :key="index">
         <div class="icons-img fix align-items-center flex-direction my-zy-15" v-for="item of page" :key="item.id">
@@ -22,17 +22,20 @@ export default {
   },
   data () {
     return {
+      swiperOption: {
+        autoplay: false
+      }
     }
   },
   computed: {
     pages () {
       const pages = []
       this.iconlist.forEach((item, index) => {
-          const page = Math.floor(index/8)
-          if (!pages[page]) {
-            pages[page] = []   
-          } 
-          pages[page].push(item)
+        const page = Math.floor(index/8)
+        if (!pages[page]) {
+          pages[page] = []
+        }
+        pages[page].push(item)
       })
       return pages
     }

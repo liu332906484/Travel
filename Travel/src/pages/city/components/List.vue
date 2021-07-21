@@ -1,24 +1,25 @@
 <template>
     <div class="list" ref="warpper">
-         <div>
+         <div class="content">
             <div class="area">
                 <div class="title fix align-items-center"><div class="mg-zy-20">你的定位</div></div>
                 <div class="area-box fix align-items-center flex-wrap-wrap mg-zy-10 my-zy-10">
-                    <div class="area-wrap"> <div class="area-item" v-for="item of Cityposition" :key="item.id">{{item.name}}</div> </div>
+                    <div class="area-wrap"> <div class="area-item">{{this.currentCity}}</div> </div>
                 </div>
             </div>
             <div class="area">
                 <div class="title fix align-items-center"><div class="mg-zy-20">去过的地方</div></div>
                 <div class="area-box fix align-items-center flex-wrap-wrap mg-zy-10 my-zy-10">
-                    <div class="area-wrap" v-for="item of hotCities" :key="item.id">
-                         <div class="area-item">{{item.name}}</div> 
+                    <div class="area-wrap" v-for="item of hotCities" :key="item.id" @click="handleCityClick(item.name)">
+                         <div class="area-item">{{item.name}}</div>
                     </div>
                 </div>
             </div>
             <div class="area" v-for ="(item, key) of cities" :key="key" :ref="key">
                 <div class="title fix align-items-center"><div class="mg-zy-20">{{key}}</div></div>
                 <div class="area-content fix align-items-center flex-wrap-wrap mg-zy-20 my-zy-15">
-                    <div class="area-wrap-list border-bottom" v-for = 'innerHTML of item' :key="innerHTML.id"> <div class="area-item my-zy-15">{{innerHTML.name}}</div> </div>
+                    <div class="area-wrap-list border-bottom" v-for = 'innerHTML of item' :key="innerHTML.id" @click="handleCityClick(innerHTML.name)">
+                        <div class="area-item my-zy-15">{{innerHTML.name}}</div> </div>
                 </div>
             </div>
          </div>
@@ -27,25 +28,39 @@
 
 <script>
 import BetterScroll from 'better-scroll'
+import { mapState, mapMutations } from 'vuex'
 export default {
-    name:'CityList',
-    props: {
-         Cityposition: Array,
-         cities: Object,
-         hotCities: Array,
-         letter: String
+  name: 'CityList',
+  props: {
+    Cityposition: Array,
+    cities: Object,
+    hotCities: Array,
+    letter: String
+  },
+  computed: {
+    ...mapState({
+      currentCity: 'city'
+    })
+  },
+  methods: {
+    handleCityClick (city) {
+      //this.$store.commit('changeCity', city)
+      this.changeCity(city)
+      this.$router.push('/')
     },
-    mounted() {
-        this.scroll = new BetterScroll(this.$refs.warpper, {movable: true, zoom: true, pullUpLoad: true})
-    },
-    watch: {
-        letter () {
-           if (this.letter) {
-              const el = this.$refs[this.letter][0]
-              this.scroll.scrollToElement(el)
-           }
-        }
+    ...mapMutations(['changeCity'])
+  },
+  watch: {
+    letter () {
+      if (this.letter) {
+        const el = this.$refs[this.letter][0]
+        this.scroll.scrollToElement(el)
+      }
     }
+  },
+  mounted () {
+    this.scroll = new BetterScroll(this.$refs.warpper, {movable: true, zoom: true, pullUpLoad: true})
+  }
 }
 </script>
 
@@ -56,7 +71,7 @@ export default {
   overflow hidden
   top 1.4rem
   bottom 0
-  left 0 
+  left 0
   right 0
   background #fff
   .area
@@ -72,8 +87,8 @@ export default {
         margin 1%
         .area-item
           box-sizing border-box
-          border 1px $bggrayd solid 
-          text-align center 
+          border 1px $bggrayd solid
+          text-align center
           line-height $bgheight5
           border-radius .06rem
     .area-content

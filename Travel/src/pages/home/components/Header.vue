@@ -14,17 +14,18 @@
        <div class="fix align-items-center justify-content-center">
          <router-link to="/city">
             <span class="city">{{this.city}}</span><i class="iconfont iconmap mg-yz-5"></i>
-         </router-link> 
+         </router-link>
        </div>
      </div>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'HomeHeader',
-  props: {
-    city: String
+  computed: {
+    ...mapState(['city'])
   }
 }
 </script>
@@ -57,5 +58,5 @@ export default {
     .h-b-l
       width $bgheight5
     .h-b-r
-      width $bgheight12
+      min-width $bgheight10
 </style>

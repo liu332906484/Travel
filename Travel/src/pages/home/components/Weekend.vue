@@ -12,17 +12,13 @@
          </div>
      </div>
   </div>
-</template> 
+</template>
 
 <script>
 export default {
-  name: "HomeWeekend",
+  name: 'HomeWeekend',
   props: {
     weeklist: Array
-  },
-  data () {
-      return {
-      }
   }
 }
 </script>
@@ -34,7 +30,7 @@ export default {
     font-size 0.32rem
     background $bgColor
     color #fff
-  .rec-text-content  
+  .rec-text-content
     .rec-title-text
       color $bggray
       font-size 0.30rem

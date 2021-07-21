@@ -18,7 +18,7 @@
 
 <script>
 export default {
-    name: 'CityHeader'
+  name: 'CityHeader'
 }
 </script>
 
@@ -47,5 +47,5 @@ export default {
           line-height .4rem
           font-size .28rem
           border-radius .05rem
-          text-align center 
+          text-align center
 </style>
